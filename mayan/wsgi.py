@@ -17,6 +17,9 @@ import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mayan.settings")
 
+sys.path.append(os.path.realpath('3rd_party_apps'))
+sys.path.append(os.path.realpath('apps'))
+
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
 # setting points here.

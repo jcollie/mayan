@@ -59,9 +59,14 @@ def handler500(request):
 
 if settings.DEVELOPMENT:
     from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-    urlpatterns += staticfiles_urlpatterns()
+    from django.conf.urls.static import static
 
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
     if 'rosetta' in settings.INSTALLED_APPS:
         urlpatterns += patterns('',
             url(r'^rosetta/', include('rosetta.urls'), name='rosetta'),
         )
+
+

@@ -9,12 +9,6 @@ ugettext = lambda s: s
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), './'))
 SITE_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-sys.path.append(os.path.join(PROJECT_ROOT, 'modules'))
-sys.path.append(os.path.join(PROJECT_ROOT, 'customization_apps'))
-sys.path.append(os.path.join(PROJECT_ROOT, 'apps'))
-sys.path.append(os.path.join(PROJECT_ROOT, 'shared_apps'))
-sys.path.append(os.path.join(PROJECT_ROOT, '3rd_party_apps'))
-
 PROJECT_TITLE = 'Mayan EDMS'
 PROJECT_NAME = 'mayan'
 
@@ -294,42 +288,3 @@ SERIALIZATION_MODULES = {
     'better_yaml': 'common.serializers.better_yaml',
 }
 
-try:
-    from settings_local import *
-except ImportError:
-    pass
-
-
-if DEVELOPMENT:
-    INTERNAL_IPS = ('127.0.0.1',)
-
-    TEMPLATE_LOADERS = (
-        'django.template.loaders.filesystem.Loader',
-        'django.template.loaders.app_directories.Loader',
-    )
-    try:
-        import rosetta
-        INSTALLED_APPS += ('rosetta',)
-    except ImportError:
-        pass
-
-    try:
-        import django_extensions
-        INSTALLED_APPS += ('django_extensions',)
-    except ImportError:
-        pass
-
-    try:
-        import debug_toolbar
-        #INSTALLED_APPS +=('debug_toolbar',)
-    except ImportError:
-        pass        
-
-    TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context_processors.debug',)
-
-    WSGI_AUTO_RELOAD = True
-    if 'debug_toolbar' in INSTALLED_APPS:
-        MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-        DEBUG_TOOLBAR_CONFIG = {
-            'INTERCEPT_REDIRECTS': False,
-        }
