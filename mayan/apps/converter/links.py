@@ -4,10 +4,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from navigation import Link
 
-from .icons import (icon_format_list, icon_transformation_create, icon_transformation_edit,
+from .icon import (icon_format_list, icon_transformation_create, icon_transformation_edit,
     icon_transformation_delete, icon_transformation_list, icon_transformation_clear)
 
-from .permissions import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
+from .permission import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
     PERMISSION_TRANSFORMATION_EDIT, PERMISSION_TRANSFORMATION_VIEW)
 
 

@@ -12,7 +12,7 @@ from .links import (link_formats_list, link_transformation_list,
     link_transformation_create, link_transformation_edit, link_transformation_delete,
     link_document_clear_transformations, link_document_multiple_clear_transformations)
 from .models import Transformation
-from .permissions import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
+from .permission import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
     PERMISSION_TRANSFORMATION_EDIT, PERMISSION_TRANSFORMATION_VIEW)
 
 register_sidebar_template(['formats_list'], 'converter_file_formats_help.html')

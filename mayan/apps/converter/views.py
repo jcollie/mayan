@@ -17,9 +17,9 @@ from permissions.models import Permission
 from .api import get_format_list
 from .classes import MenuLessObject
 from .forms import TransformationForm_create, TransformationForm
-from .icons import icon_transformation_clear
+from .icon import icon_transformation_clear
 from .models import Transformation
-from .permissions import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
+from .permission import (PERMISSION_TRANSFORMATION_CREATE, PERMISSION_TRANSFORMATION_DELETE,
     PERMISSION_TRANSFORMATION_EDIT, PERMISSION_TRANSFORMATION_VIEW)
 from .settings import GRAPHICS_BACKEND
 
