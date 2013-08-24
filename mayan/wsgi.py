@@ -17,15 +17,14 @@ import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mayan.settings")
 
-sys.path.append(os.path.realpath('3rd_party_apps'))
-sys.path.append(os.path.realpath('apps'))
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# This application object is used by any WSGI server configured to use this
-# file. This includes Django's development server, if the WSGI_APPLICATION
-# setting points here.
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+sys.path.append(os.path.join(PROJECT_DIR, '3rd_party_apps'))
+sys.path.append(os.path.join(PROJECT_DIR, 'apps'))
 
-# Apply WSGI middleware here.
-# from helloworld.wsgi import HelloWorldApplication
-# application = HelloWorldApplication(application)
+import django.core.handlers.wsgi
+_application = django.core.handlers.wsgi.WSGIHandler()
+
+def application(environ, start_response):
+  os.environ['DJANGO_ENVIRONMENT'] = environ['DJANGO_ENVIRONMENT']
+  return _application(environ, start_response)
