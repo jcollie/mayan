@@ -13,6 +13,8 @@ try:
     from sh import lsb_release, uname
 except sh.CommandNotFound:
     LSB = False
+except ImportError:
+    LSB = False
 else:
     LSB = True
 
